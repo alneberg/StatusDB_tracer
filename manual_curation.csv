@@ -18,4 +18,21 @@ python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variabl
 python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/open_application_count_seq_projects
 python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/open_application_count_samples
 python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,x_flowcells_db,<variable:view>,dashboard/week_instr_bp
-#python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,nanopore_runs_db,<variable:view>,dashboard/week_instr_bp
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,nanopore_runs_db,<variable:view>,dashboard/week_instr_bp
+# Other Genstat
+python_sources/genomics-status/status/sample_requirements.py,SampleRequirementsBaseHandler,fetch_published_doc_version,<variable:db>,sample_requirements_db,entire_document/published_by_version,entire_document/published_by_version
+python_sources/genomics-status/status/sample_requirements.py,SampleRequirementsBaseHandler,fetch_latest_doc,<variable:db>,sample_requirements_db,entire_document/by_version,entire_document/by_version
+python_sources/genomics-status/status/pricing.py,PricingBaseHandler,fetch_published_doc_version,<variable:db>,cost_calculator_db,entire_document/published_by_version,entire_document/published_by_version
+python_sources/genomics-status/status/pricing.py,PricingBaseHandler,fetch_latest_doc,<variable:db>,cost_calculator_db,entire_document/by_version,entire_document/by_version
+python_sources/genomics-status/status/pricing.py,AgreementsDBHandler,fetch_agreement,<variable:db>,agreements_db,entire_document/project_id,entire_document/project_id
+python_sources/genomics-status/status/pricing.py,AgreementTemplateTextHandler,fetch_latest_agreement_doc,<variable:db>,agreement_templates_db,entire_document/by_version,entire_document/by_version
+python_sources/genomics-status/status/running_notes.py,RunningNotesDataHandler,get,running_notes_db,running_notes_db,_partition/<variable:partitionid>/_all_docs,_partition/<variable:partitionid>/_all_docs
+python_sources/genomics-status/status/running_notes.py,LatestRunningNoteHandler,get_latest_running_note,running_notes_db,running_notes_db,latest_note_previews/<variable:note_type>,latest_note_previews/flowcell
+python_sources/genomics-status/status/running_notes.py,LatestRunningNoteHandler,get_latest_running_note,running_notes_db,running_notes_db,latest_note_previews/<variable:note_type>,latest_note_previews/project
+python_sources/genomics-status/status/running_notes.py,LatestRunningNoteHandler,get_latest_running_note,running_notes_db,running_notes_db,latest_note_previews/<variable:note_type>,latest_note_previews/workset
+python_sources/genomics-status/status/projects.py,ImagesDownloadHandler,post,projects_db,projects_db,<variable:view>,project/frag_an_links
+python_sources/genomics-status/status/projects.py,ImagesDownloadHandler,post,projects_db,projects_db,<variable:view>,project/caliper_links
+python_sources/genomics-status/status/sequencing.py,InstrumentSeriesDataHandler,data,flowcells_db,flowcells_db,<variable:couchdb_view_name>,instrument/clusters_raw
+python_sources/genomics-status/status/sequencing.py,InstrumentSeriesDataHandler,data,flowcells_db,flowcells_db,<variable:couchdb_view_name>,instrument/error_rates
+python_sources/genomics-status/status/sequencing.py,InstrumentSeriesDataHandler,data,flowcells_db,flowcells_db,<variable:couchdb_view_name>,instrument/unmatched
+python_sources/genomics-status/status/sequencing.py,InstrumentSeriesDataHandler,data,flowcells_db,flowcells_db,<variable:couchdb_view_name>,instrument/yield
