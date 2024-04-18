@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "statusdb-tracer"
+version = "0.1.0"
+description = "Attempting to document which StatusDB views are used with static code analysis"
+authors = ["Johannes Alneberg <alneberg@kth.se>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
