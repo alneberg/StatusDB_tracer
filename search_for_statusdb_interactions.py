@@ -106,16 +106,17 @@ def find_function_calls_in_files(target_function, files, dirs):
             )
     # Recurse through directories
     for directory in dirs:
-        for file_name in os.listdir(directory):
-            if file_name.endswith(".py"):
-                file_path = os.path.join(directory, file_name)
-                with open(file_path, "r") as f:
-                    source_code = f.read()
-                tree = ast.parse(source_code)
-                visitor = FunctionCallVisitor(target_function, file_path)
-                visitor.visit(tree)
-                for context in visitor.function_calls:
-                    context.print()
+        for dirpath, dirs, files in os.walk(directory):
+            for file_name in files:
+                if file_name.endswith(".py"):
+                    file_path = os.path.join(dirpath, file_name)
+                    with open(file_path, "r") as f:
+                        source_code = f.read()
+                    tree = ast.parse(source_code)
+                    visitor = FunctionCallVisitor(target_function, file_path)
+                    visitor.visit(tree)
+                    for context in visitor.function_calls:
+                        context.print()
 
 
 if __name__ == "__main__":
