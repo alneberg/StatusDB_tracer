@@ -1,0 +1,21 @@
+Path,Class,Function,Database_variable_name,Database_variable_value,View_variable_name,View_variable_value
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/year_application_count
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/year_application_count_samples
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/year_affiliation_count_projects
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/year_deliverytime_count_projects
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/open_application_count_projects
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/open_application_count_samples
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,x_flowcells_db,<variable:view>,dashboard/week_instr_bp
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/year_deliverytime_median_by_application
+# StatsAggregationHandler
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/year_application_count
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,year_application_count_samples
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/year_affiliation_count_projects
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/year_seq_application_count
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/year_deliverytime_count_projects
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/year_deliverytime_median_by_application
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/open_application_count_projects
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/open_application_count_seq_projects
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,projects_db,<variable:view>,genomics-dashboard/open_application_count_samples
+python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,x_flowcells_db,<variable:view>,dashboard/week_instr_bp
+#python_sources/genomics-status/status/statistics.py,None,get_stats_data,<variable:db>,nanopore_runs_db,<variable:view>,dashboard/week_instr_bp
