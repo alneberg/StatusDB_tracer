@@ -1,3 +1,6 @@
 [submodule "genomics-status"]
 	path = python_sources/genomics-status
 	url = https://github.com/SciLifeLab/genomics-status.git
+[submodule "python_sources/TACA"]
+	path = python_sources/TACA
+	url = https://github.com/SciLifeLab/TACA.git
