@@ -1,0 +1,3 @@
+[submodule "genomics-status"]
+	path = genomics-status
+	url = https://github.com/SciLifeLab/genomics-status.git
