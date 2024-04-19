@@ -133,8 +133,13 @@ class FunctionCallVisitor(ast.NodeVisitor):
 
             kw_arguments = [keyword.arg for keyword in node.keywords]
 
+            # Try to figure out which database the view is called on
             if isinstance(node.func.value, ast.Name):
+                # The function is called on a variable, this needs to be dealt with manually (manual curation file)
                 object = f"<variable:{node.func.value.id}>"
+            elif node.func.value.attr == "db":
+                # Common name of object that should be considered a variable as well
+                object = "<variable:db>"
             else:
                 object = node.func.value.attr
 
@@ -161,7 +166,7 @@ class FunctionCallVisitor(ast.NodeVisitor):
         )
 
 
-def check_file(file_name, target_function, manual_curator):
+def check_file(file_name, target_function, manual_curator, suggestions_file=None):
     with open(file_name, "r") as f:
         source_code = f.read()
     tree = ast.parse(source_code)
@@ -175,9 +180,9 @@ def check_file(file_name, target_function, manual_curator):
                 extra_context.print()
         elif context.has_variables():
             logger.warning(
-                f"WARNING: Variable found in context {context.file_name}:{context.line_number} without matching manual curation, please add line(s) to manual curation on the following form: "
+                f"WARNING: Variable found in context {context.file_name}:{context.line_number} without matching manual curation, please add line(s) to manual curation on the following form: \n\t"
             )
-            suggestion = f"\n\t{','.join(list(context.to_key()))},{context.object},"
+            suggestion = f"{','.join(list(context.to_key()))},{context.object},"
             suggestion += (
                 "---possible db value---"
                 if "<variable:" in context.object
@@ -191,16 +196,19 @@ def check_file(file_name, target_function, manual_curator):
             )
             suggestion += "\n"
             logger.warning(suggestion)
+            if suggestions_file:
+                with open(suggestions_file, "a") as f:
+                    f.write(suggestion)
         else:
             context.print()
 
 
-def main(target_function, files, dirs, manual_curation_file):
-    manual_curator = ManualCuration("manual_curation.csv")
+def main(target_function, files, dirs, manual_curation_file, suggestions_file):
+    manual_curator = ManualCuration(manual_curation_file)
     manual_curator.parse()
 
     for file_name in files:
-        check_file(file_name, target_function, manual_curator)
+        check_file(file_name, target_function, manual_curator, suggestions_file)
 
     # Recurse through directories
     for directory in dirs:
@@ -208,7 +216,9 @@ def main(target_function, files, dirs, manual_curation_file):
             for file_name in files:
                 if file_name.endswith(".py"):
                     file_path = os.path.join(dirpath, file_name)
-                    check_file(file_path, target_function, manual_curator)
+                    check_file(
+                        file_path, target_function, manual_curator, suggestions_file
+                    )
 
 
 if __name__ == "__main__":
@@ -233,6 +243,11 @@ if __name__ == "__main__":
         default="INFO",
         help="Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)",
     )
+    parser.add_argument(
+        "--suggestions_file",
+        default=None,
+        help="File to write suggestions for more manual curations to",
+    )
 
     args = parser.parse_args()
 
@@ -242,4 +257,10 @@ if __name__ == "__main__":
     handler.setLevel(args.logging_level)
     logger.addHandler(handler)
 
-    main(args.target_function, args.files, args.dirs, args.manual_curation)
+    main(
+        args.target_function,
+        args.files,
+        args.dirs,
+        args.manual_curation,
+        args.suggestions_file,
+    )
