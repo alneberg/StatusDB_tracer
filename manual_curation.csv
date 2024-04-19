@@ -58,3 +58,9 @@ python_sources/TACA/taca/backup/backup.py,backup_utils,_log_pdc_statusdb,<variab
 # Taca-ngi-pipeline
 python_sources/taca-ngi-pipeline/taca_ngi_pipeline/deliver/deliver_grus.py,GrusProjectDeliverer,_get_order_detail,<variable:projects_db>,projects_db,order_portal/ProjectID_to_PortalID,order_portal/ProjectID_to_PortalID
 python_sources/taca-ngi-pipeline/taca_ngi_pipeline/deliver/deliver_dds.py,DDSProjectDeliverer,_get_order_detail,<variable:projects_db>,projects_db,order_portal/ProjectID_to_PortalID,order_portal/ProjectID_to_PortalID
+# Scilifelab Epps
+python_sources/scilifelab_epps/scripts/ont_suggest_ports.py,,main,<variable:db>,nanopore_runs_db,info/all_stats,info/all_stats
+python_sources/scilifelab_epps/scripts/write_notes_to_couchdb.py,,write_note_to_couch,<variable:proj_db>,projects_db,project/project_id,project/project_id
+python_sources/scilifelab_epps/scripts/ont_send_loading_info_to_db.py,,match_to_db_using_run_id,<variable:db>,nanopore_runs_db,info/all_stats,info/all_stats
+python_sources/scilifelab_epps/scripts/ont_send_loading_info_to_db.py,,match_to_db_using_samplesheet,<variable:db>,nanopore_runs_db,info/all_stats,info/all_stats
+python_sources/scilifelab_epps/scripts/ont_send_reloading_info_to_db.py,,main,<variable:db>,nanopore_runs_db,info/all_stats,info/all_stats
