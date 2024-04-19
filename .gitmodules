@@ -4,3 +4,6 @@
 [submodule "python_sources/TACA"]
 	path = python_sources/TACA
 	url = https://github.com/SciLifeLab/TACA.git
+[submodule "python_sources/taca-ngi-pipeline"]
+	path = python_sources/taca-ngi-pipeline
+	url = https://github.com/SciLifeLab/taca-ngi-pipeline.git
