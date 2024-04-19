@@ -36,3 +36,25 @@ python_sources/genomics-status/status/sequencing.py,InstrumentSeriesDataHandler,
 python_sources/genomics-status/status/sequencing.py,InstrumentSeriesDataHandler,data,flowcells_db,flowcells_db,<variable:couchdb_view_name>,instrument/error_rates
 python_sources/genomics-status/status/sequencing.py,InstrumentSeriesDataHandler,data,flowcells_db,flowcells_db,<variable:couchdb_view_name>,instrument/unmatched
 python_sources/genomics-status/status/sequencing.py,InstrumentSeriesDataHandler,data,flowcells_db,flowcells_db,<variable:couchdb_view_name>,instrument/yield
+# TACA
+python_sources/TACA/taca/utils/statusdb.py,None,update_doc,<variable:db>,x_flowcells_db,info/name,info/name
+python_sources/TACA/taca/utils/statusdb.py,ProjectSummaryConnection,__init__,<variable:db>,projects_db,project/project_name,project/project_name
+python_sources/TACA/taca/utils/statusdb.py,ProjectSummaryConnection,__init__,<variable:db>,projects_db,project/project_id,project/project_id
+python_sources/TACA/taca/utils/statusdb.py,FlowcellRunMetricsConnection,__init__,<variable:db>,flowcells_db,names/name,names/name
+python_sources/TACA/taca/utils/statusdb.py,FlowcellRunMetricsConnection,__init__,<variable:db>,flowcells_db,names/project_ids_list,names/project_ids_list
+python_sources/TACA/taca/utils/statusdb.py,X_FlowcellRunMetricsConnection,__init__,<variable:db>,x_flowcells_db,names/name,names/name
+python_sources/TACA/taca/utils/statusdb.py,X_FlowcellRunMetricsConnection,__init__,<variable:db>,x_flowellsd_db,names/project_ids_list,names/project_ids_list
+python_sources/TACA/taca/utils/statusdb.py,NanoporeRunsConnection,check_run_exists,<variable:db>,nanopore_runs_db,names/name,names/name
+python_sources/TACA/taca/utils/statusdb.py,NanoporeRunsConnection,check_run_status,<variable:db>,nanopore_runs_db,names/name,names/name
+python_sources/TACA/taca/utils/statusdb.py,NanoporeRunsConnection,finish_ongoing_run,<variable:db>,nanopore_runs_db,names/name,names/name
+python_sources/TACA/taca/utils/statusdb.py,,update_doc,<variable:db>,x_flowcells_db,info/name,info/name
+python_sources/TACA/taca/utils/misc.py,,run_is_demuxed,<variable:fc_db>,x_flowcells_db,names/name,names/name
+python_sources/TACA/taca/utils/bioinfo_tab.py,,update_statusdb,<variable:db>,bioinfo_analysis_db,latest_data/sample_id,latest_data/sample_id
+python_sources/TACA/taca/utils/bioinfo_tab.py,,fail_run,<variable:bioinfo_db>,bioinfo_analysis_db,full_doc/pj_run_to_doc,full_doc/pj_run_to_doc
+python_sources/TACA/taca/utils/bioinfo_tab.py,,fail_run,<variable:bioinfo_db>,bioinfo_analysis_db,full_doc/run_id_to_doc,full_doc/run_id_to_doc
+python_sources/TACA/taca/server_status/cronjobs.py,,update_cronjob_db,<variable:crontab_db>,cronjobs_db,server/alias,server/alias
+python_sources/TACA/taca/testing/create_uppmax_like_env.py,,create,<variable:projectsDB>,projects_db,project/summary,project/summary
+python_sources/TACA/taca/backup/backup.py,backup_utils,_log_pdc_statusdb,<variable:db>,x_flowcells_db,names/name,names/name
+# Taca-ngi-pipeline
+python_sources/taca-ngi-pipeline/taca_ngi_pipeline/deliver/deliver_grus.py,GrusProjectDeliverer,_get_order_detail,<variable:projects_db>,projects_db,order_portal/ProjectID_to_PortalID,order_portal/ProjectID_to_PortalID
+python_sources/taca-ngi-pipeline/taca_ngi_pipeline/deliver/deliver_dds.py,DDSProjectDeliverer,_get_order_detail,<variable:projects_db>,projects_db,order_portal/ProjectID_to_PortalID,order_portal/ProjectID_to_PortalID
