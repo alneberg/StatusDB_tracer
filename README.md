@@ -14,3 +14,4 @@ Attempting to document which StatusDB views are used where with static code anal
 ## To Dos
   - Create csv/tsv output
   - Need to link statusdb_view files to the python sources which can be named slightly differently
+  - Track which manual curation rows have been used to see if something is deprecated
