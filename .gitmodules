@@ -7,3 +7,6 @@
 [submodule "python_sources/taca-ngi-pipeline"]
 	path = python_sources/taca-ngi-pipeline
 	url = https://github.com/SciLifeLab/taca-ngi-pipeline.git
+[submodule "python_sources/scilifelab_epps"]
+	path = python_sources/scilifelab_epps
+	url = https://github.com/SciLifeLab/scilifelab_epps.git
